@@ -1,0 +1,90 @@
+CREATE TABLE my_table2 (
+  "_id" text PRIMARY KEY,
+  name text,
+  permalink text,
+  crunchbase_url text,
+  homepage_url text,
+  blog_url text,
+  blog_feed_url text,
+  twitter_username text,
+  category_code text,
+  number_of_employees int,
+  founded_year int,
+  founded_month int,
+  founded_day int,
+  deadpooled_year int,
+  deadpooled_month int,
+  deadpooled_day int,
+  deadpooled_url text,
+  tag_list text,
+  alias_list text,
+  email_address text,
+  phone_number text,
+  description text,
+  created_at timestamp,
+  updated_at timestamp,
+  overview text,
+  products list<text>,
+  relationships list<frozen<map<text, text>>>,
+  competitions list<frozen<map<text, text>>>,
+  providerships list<frozen<map<text, text>>>,
+  total_money_raised text,
+  funding_rounds list<frozen<map<text, text>>>,
+  investments list<frozen<map<text, text>>>,
+  acquisition frozen<map<text, text>>,
+  acquisitions list<frozen<map<text, text>>>,
+  offices list<frozen<map<text, text>>>,
+  milestones list<frozen<map<text, text>>>,
+  ipo frozen<map<text, text>>,
+  video_embeds list<frozen<map<text, text>>>,
+  external_links list<frozen<map<text, text>>>,
+  partners list<frozen<map<text, text>>>
+);
+
+CREATE TABLE my_table2 ("_id",name,permalink,crunchbase_url,homepage_url,blog_url,blog_feed_url,twitter_username,category_code,number_of_employees,founded_year,founded_month,founded_day,deadpooled_year,deadpooled_month,deadpooled_day,deadpooled_url,tag_list,alias_list,email_address,phone_number,description,created_at,updated_at,overview,products,relationships,competitions,providerships,total_money_raised,funding_rounds,investments,acquisition,acquisitions,offices,milestones,ipo,video_embeds,external_links,partners);
+
+COPY my_table2("_id",name,permalink,crunchbase_url,homepage_url,blog_url,blog_feed_url,twitter_username,category_code,number_of_employees,founded_year,founded_month,founded_day,deadpooled_year,deadpooled_month,deadpooled_day,deadpooled_url,tag_list,alias_list,email_address,phone_number,description,created_at,updated_at,overview,products,relationships,competitions,providerships,total_money_raised,funding_rounds,investments,acquisition,acquisitions,offices,milestones,ipo,video_embeds,external_links,partners) FROM 'companies2.json';
+
+
+Keys :
+_id
+acquisition
+acquisitions
+alias_list
+blog_feed_url
+blog_url
+category_code
+competitions
+created_at
+crunshbase_url
+deadpooled_day
+deadpooled_month
+deadpooled_url
+deadpooled_year
+description
+email_address
+external_links
+founded_day
+founded_month
+founded_year
+funding_rounds
+homepage_url
+investments
+ipo
+milestones
+name
+number_of_employees
+offices
+overview
+partners
+permalink
+phone_number
+products
+providerships
+relationships
+
+
+
+
+
+

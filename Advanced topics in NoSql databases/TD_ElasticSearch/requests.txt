@@ -1,0 +1,435 @@
+# Test request
+GET /movies/_search
+{"query":{
+"match":{"title" : "Don Jon"}}
+}
+
+########################### Simple Queries ###########################
+
+# 2.1.1 Every movies which title matches 'Star Wars' (match query)
+GET _search
+{
+  "query": {
+    "match": {"title": "Star Wars"
+    }
+  }
+}
+
+# 2.1.2 Try with exact match (match_phrase),
+GET _search
+{
+  "query": {
+    "match_phrase": {"title": "Star Wars"
+    }
+  }
+}
+
+# 2.1.3 Star Wars movies and Directors equal to ’George Lucas’ (boolean query)
+
+GET _search
+{
+  "query": {
+    "bool": {"should": 
+    [
+      { 
+        "match": { "title": "Star Wars" }
+      },
+      {
+        "match": { "directors": "George Lucas" }
+      }
+    ]
+    }
+  }
+}
+
+GET _search
+{
+  "query": {
+    "bool": {"should": 
+    [
+      { 
+        "match_phrase": { "title": "Star Wars" }
+      },
+      {
+        "match_phrase": { "directors": "George Lucas" }
+      }
+    ]
+    }
+  }
+}
+
+GET _search
+{
+  "query": {
+    "bool": {"must": 
+    [
+      { 
+        "match": { "title": "Star Wars" }
+      },
+      {
+        "match": { "directors": "George Lucas" }
+      }
+    ]
+    }
+  }
+}
+
+# 2.1.4 Movies were ’Harrison Ford’ played
+GET _search
+{
+  "query": 
+  {
+    "match": {
+      "actors": "Harrison Ford"
+      
+    }
+  }
+}
+
+# 2.1.5 Movies were ’Harrison Ford’ played with a plot containing ’Jones’
+GET _search
+{
+  "query": {
+    "bool": 
+    { "should": 
+      [
+        { "match_phrase": { "actors": "Harrison Ford" }},
+        { "match": { "plot": "Jones" }}
+      ]
+    }
+  }
+}
+
+# 2.1.6 Movies were ’Harrison Ford’ played with a plot containing ’Jones’ but plots without containing ’Nazis’
+GET _search
+{
+  "query": {
+    "bool": 
+    { "must": 
+      [
+        { "match_phrase": { "actors": "Harrison Ford" }},
+        { "match": { "plot": "Jones" }}
+      ],
+      "must_not" : 
+        { "match" : {"plot":"Nazis"}
+          
+        }
+    }
+  }
+}
+
+# 2.1.7 Movies of ’James Cameron’ which rank is better than 1000 (boolean + range query)
+GET _search
+{
+  "query":{
+    "bool": {
+      "must": 
+      [
+        { "match_phrase": { "directors": "James Cameron" }},
+        { "range": { "rank": {"lt":1000 }}}
+      ]
+    } 
+  }
+}
+
+# 2.1.8 Movies of ’James Cameron’ which rating must be higher than 5 and which genre must not be ’Action’ nor ’Drama
+GET _search
+{
+  "query": {
+    "bool": {
+      "should": {
+        "match_phrase": {
+          "directors": "James Cameron"
+        }
+      },
+      "must": {
+        "range": {
+          "rating": {
+            "gt": 5
+          }
+        }
+      },
+      "must_not": [
+        {
+          "match": {
+            "genres": "Action"
+          }
+        },
+        {
+          "match": {
+            "genres": "Drama"
+          }
+        }
+      ]
+    }
+  }
+}
+
+# 2.1.9 Movies of ’J.J. Abrams’ which released date is mandatory between 2010 and 2015 (filtered query on release_date)
+GET _search
+{
+  "query": {
+    "bool": {
+      "must": {
+        "match": {
+          "directors": "J.J. Abrams"
+        }
+      },
+      "filter": {
+        "range": {
+          "release_date": {
+            "from": "2010-01-01",
+            "to": "2015-12-31"
+          }
+        }
+      }
+    }
+  }
+}
+
+######################### Complex queries ##########################
+# 2.2.1 Give for each year the number of movies
+GET _search
+{
+  "size": 0,"aggs": { 
+    "nb_per_year": {
+      "terms": {
+        "field": "year"
+      }
+    }
+  }
+}
+
+# 2.2.2 For each category (genres), give the number of movies. To take into account the whole text, you need to use ”keyword” after the required field
+GET _search
+{
+  "size":0,
+  "aggs": {
+    "nb_per_category": {
+      "terms": {
+        "field": "genres.keyword"
+      }
+    }
+  }
+}
+
+# 2.2.3 Give the average rating of movies,
+GET _search
+{
+  "aggs": {
+    "avg_rating": {
+      "avg": {
+        "field": "rating"
+      }
+    }
+  }
+}
+
+# 2.2.4 Give the average rating of George Lucas’ movies
+GET _search
+{
+  "size":0,
+  "query": {
+    "match_phrase": {
+      "directors": "George Lucas"
+    }
+  },
+  "aggs": {
+    "note_moyenne": {
+      "avg": {
+        "field": "rank"
+      }
+    }
+  }
+}
+
+# 2.2.5 Count the number of movies for the given ranges of rating: 0-1.9, 2-3.9, 4-5.9...)
+GET _search
+{
+  "size":0,
+  "aggs": {
+    "toto": {
+      "range": {
+        "field": "rating",
+        "ranges": [
+          {
+            "to": 1.9
+          },
+          {
+            "from": 2,
+            "to": 3.9
+          },
+          {
+            "from": 4,
+            "to": 5.9
+          },
+          {
+            "from": 6,
+            "to": 7.9
+          },
+          {
+            "from": 8
+          }
+        ]
+      }
+    }
+  }
+}
+
+GET _search
+{
+  "size":0,"query": {
+    "match": {
+      "genres": "Adventure"
+    }
+  },
+  "aggs": {
+    "nb_distinct": {
+      "cardinality": {
+        "field": "directors.keyword"
+      }
+    }
+  }
+}
+
+GET _search
+{
+  "size": 0,
+  "aggs": {
+    "group_genres": {
+      "terms": {
+        "field": "genres.keyword"
+      },
+      "aggs": {
+        "avg_rating": {
+          "avg": {
+            "field": "rating"
+          }
+        }
+      }
+    }
+  }
+}
+
+# 2.2.2 Give min, max and average rating for each genre,
+GET _search
+{
+  "size": 0,
+  "aggs": {
+    "group_genres": {
+      "terms": {
+        "field": "genres.keyword"
+      },
+      "aggs": {
+        "avg_rating": {
+          "avg": {
+            "field": "rating"
+          }
+        },
+        "min_rating": {
+          "min": {
+            "field": "rating"
+          }
+        },
+        "max_rating": {
+          "max": {
+            "field": "rating"
+          }
+        }
+      }
+    }
+  }
+}
+
+# 2.2.3 Give the average ranking of movies per year and sort them increasingly
+GET _search
+{
+  "size": 0,
+  "aggs": {
+    "group_year": {
+      "terms": {
+        "field": "year",
+        "order": {
+          "avg_ranking": "asc"
+        }
+      },
+      "aggs": {
+        "avg_ranking": {
+          "avg": {
+            "field": "rank"
+          }
+        }
+      }
+    }
+  }
+}
+
+# 2.2.4 Give average movie’s rank and average movie’s rating for each director. Sort the result decreasingly on average rating
+GET _search
+{
+  "size": 0,
+  "aggs": {
+    "group_director": {
+      "terms": {
+        "field": "directors.keyword",
+        "order": {
+          "avg_rating": "desc"
+        }
+      },
+      "aggs": {
+        "avg_rank": {
+          "avg": {
+            "field": "rank"
+          }
+        },
+        "avg_rating": {
+          "avg": {
+            "field": "rating"
+          }
+        }
+      }
+    }
+  }
+}
+
+
+PUT /movies/_mapping
+{
+  "properties": {
+    "fields.title": {
+      "type": "text",
+      "fielddata": true
+    }
+  }
+}
+
+GET _search
+{
+  "size": 0,
+  "aggs": {
+    "occ_per_term_in_title": {
+      "terms": {
+        "field": "title"
+      }
+    }
+  }
+}
+
+PUT /movies/_mapping
+{
+  "properties": {
+    "fields.plots": {
+      "type": "text",
+      "fielddata": true
+    }
+  }
+}
+GET /movies/_search
+{
+"query" :{"match_phrase" : {"directors" : "George Lucas"}},
+"aggs" : {
+"terms_significatifs" : {
+"significant_terms" : {"field" : "plot"}
+}},
+"size":1
+}

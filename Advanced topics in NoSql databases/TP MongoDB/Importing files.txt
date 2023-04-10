@@ -1,0 +1,1 @@
+mongoimport --db DB_Companies --collection TD --file companies2.json
