@@ -60,17 +60,6 @@ I have to browse each e-shop brand to look for a product.
 
 With [javascript-empire](https://github.com/92bondstreet/javascript-empire#%EF%B8%8F-the-3-themes) themes, we'll follow next workshops to solve our problem:
 
-| Step | Workshops | Planned Date
-| --- | --- | ---
-| 1 | [Manipulate data with JavaScript in the browser](./workshops/1-manipulate-javascript.md) | January 2023
-| 2 | [Interact data with JavaScript, HTML and CSS in the browser again](./workshops/2-interact-js-css.md) | January 2023
-| 3 | [Scrape data with Node.js](./workshops/3-scrape-node.md) | February 2023
-| 4 | [Save data in a Database with MongoDB](./workshops/4-store-mongodb.md) | February 2023
-| 5 | [Build an api with Express to request data](./workshops/5-api-express.md) | February 2023
-| 6 | Test your code with Jest | March 2023
-| 7 | [Deploy in production with Vercel](./workshops/7-deploy.md) | March 2023
-| 8 | Render data with React | March 2023
-
 
 ## 🌱 Source and Inspiration
 
