@@ -1,5 +1,12 @@
 # 👕 Clear Fashion
 
+LINK FOR THE WEB APP PREVIEW :
+-> https://clear-fashion-website-1.vercel.app/
+
+LINK OF THE API GENERATED USING MONGODB and VECEL : 
+-> https://clear-fashion-api-1.vercel.app/
+
+
 > What's the story behind each item of clothing you buy?
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
