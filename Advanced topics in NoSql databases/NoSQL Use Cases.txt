@@ -1,4 +1,0 @@
-MangoDB : Beaucoup de factures
-Cassandra : Faire des copies
-ElasticSearch / OpenSearch : Open Source (pour les logs) timeseries
-Neo4j : Police / Médecine (méthode graphe)

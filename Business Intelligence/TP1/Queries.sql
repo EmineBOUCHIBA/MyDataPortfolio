@@ -1,1 +1,0 @@
-select customerName,sum(amount) from payments natural join customers group by customerName order by sum(amount) desc limit 3;
