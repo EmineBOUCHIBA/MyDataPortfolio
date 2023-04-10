@@ -1,0 +1,165 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix movie: <http://www.example.com/movie#>.
+@prefix person: <http://www.example.com/person#>.
+@prefix theater: <http://www.example.com/theater#>.
+@prefix genre: <http://www.example.com/genre#>.
+
+# Movie class definition
+movie:Movie rdf:type owl:Class ;
+    rdfs:label "Movie" .
+
+# Director class definition
+movie:Director rdf:type owl:Class ;
+    rdfs:label "Director" .
+
+# Writer class definition
+movie:Writer rdf:type owl:Class ;
+    rdfs:label "Writer" .
+
+# Actor class definition
+movie:Actor rdf:type owl:Class ;
+    rdfs:label "Actor" .
+
+# Genre class definition
+genre:Genre rdf:type owl:Class ;
+    rdfs:label "Genre" .
+
+# Person class definition
+person:Person rdf:type owl:Class ;
+    rdfs:label "Person" .
+
+# Theater class definition
+theater:Theater rdf:type owl:Class ;
+    rdfs:label "Theater" .
+
+# Properties definition
+movie:title rdf:type owl:DatatypeProperty ;
+    rdfs:label "title" ;
+    rdfs:domain movie:Movie ;
+    rdfs:range xsd:string .
+
+movie:hasDirector rdf:type owl:ObjectProperty ;
+    rdfs:label "has director" ;
+    rdfs:domain movie:Movie ;
+    rdfs:range movie:Director .
+
+movie:hasWriter rdf:type owl:ObjectProperty ;
+    rdfs:label "has writer" ;
+    rdfs:domain movie:Movie ;
+    rdfs:range movie:Writer .
+
+movie:hasActor rdf:type owl:ObjectProperty ;
+    rdfs:label "has actor" ;
+    rdfs:domain movie:Movie ;
+    rdfs:range movie:Actor .
+
+movie:hasGenre rdf:type owl:ObjectProperty ;
+    rdfs:label "has genre" ;
+    rdfs:domain movie:Movie ;
+    rdfs:range genre:Genre .
+
+movie:year rdf:type owl:DatatypeProperty ;
+    rdfs:label "year" ;
+    rdfs:domain movie:Movie ;
+    rdfs:range xsd:gYear .
+
+movie:country rdf:type owl:DatatypeProperty ;
+    rdfs:label "country" ;
+    rdfs:domain movie:Movie ;
+    rdfs:range xsd:string .
+
+movie:language rdf:type owl:DatatypeProperty ;
+    rdfs:label "language" ;
+    rdfs:domain movie:Movie ;
+    rdfs:range xsd:string .
+
+person:name rdf:type owl:DatatypeProperty ;
+    rdfs:label "name" ;
+    rdfs:domain person:Person ;
+    rdfs:range xsd:string .
+
+person:gender rdf:type owl:DatatypeProperty ;
+    rdfs:label "gender" ;
+    rdfs:domain person:Person ;
+    rdfs:range xsd:string .
+
+person:age rdf:type owl:DatatypeProperty ;
+    rdfs:label "age" ;
+    rdfs:domain person:Person ;
+    rdfs:range xsd:int .
+
+person:nationality rdf:type owl:DatatypeProperty ;
+	rdfs:label "nationality" ;
+	rdfs:domain person:Person ;
+	rdfs:range xsd:string .
+
+theater:hasLocation rdf:type owl:ObjectProperty ;
+	rdfs:label "has location" ;
+	rdfs:domain theater:Theater ;
+	rdfs:range xsd:string .
+
+# Genre instances
+genre:Thriller rdf:type owl:NamedIndividual ;
+genre:Genre ;
+	rdfs:label "Thriller" .
+
+genre:Crime rdf:type owl:NamedIndividual ;
+genre:Genre ;
+	rdfs:label "Crime" .
+
+genre:Action rdf:type owl:NamedIndividual ;
+genre:Genre ;
+	rdfs:label "Action" .
+
+genre:Drama rdf:type owl:NamedIndividual ;
+genre:Genre ;
+	rdfs:label "Drama" .
+
+genre:Comedy rdf:type owl:NamedIndividual ;
+genre:Genre ;
+	rdfs:label "Comedy" .
+
+Person instances
+person:JohnDoe rdf:type owl:NamedIndividual ;
+person:Person ;
+	rdfs:label "John Doe" ;
+person:gender "male" ;
+person:age "40"^^xsd:int ;
+person:nationality "USA" ;
+person:name "John Doe" .
+
+person:JaneDoe rdf:type owl:NamedIndividual ;
+person:Person ;
+	rdfs:label "Jane Doe" ;
+person:gender "female" ;
+person:age "35"^^xsd:int ;
+person:nationality "USA" ;
+person:name "Jane Doe" .
+
+Movie instances
+movie:Movie1 rdf:type owl:NamedIndividual ;
+movie:Movie ;
+	rdfs:label "Movie 1" ;
+movie:title "The Shawshank Redemption" ;
+movie:year "1994"^^xsd:gYear ;
+movie:country "USA" ;
+movie:language "English" ;
+movie:hasDirector person:JohnDoe ;
+movie:hasWriter person:JaneDoe ;
+movie:hasActor person:JohnDoe ;
+movie:hasActor person:JaneDoe ;
+movie:hasGenre genre:Drama .
+
+Theater instances
+theater:Theater1 rdf:type owl:NamedIndividual ;
+theater:Theater ;
+	rdfs:label "Theater 1" ;
+theater:hasLocation "New York City" .
+
+theater:Theater2 rdf:type owl:NamedIndividual ;
+theater:Theater ;
+	rdfs:label "Theater 2" ;
+theater:hasLocation "Los Angeles" .

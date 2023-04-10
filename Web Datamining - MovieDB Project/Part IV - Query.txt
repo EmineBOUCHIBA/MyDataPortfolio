@@ -1,0 +1,6 @@
+PREFIX ont: <http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#>
+SELECT ?person ?type
+WHERE {
+    ?person rdf:type ?type .
+    FILTER (?type = ont:Actor || ?type = ont:Director || ?type = ont:Writer)
+}

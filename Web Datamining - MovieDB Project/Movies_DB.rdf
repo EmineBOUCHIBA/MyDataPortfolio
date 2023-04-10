@@ -1,0 +1,107 @@
+
+
+    <!-- http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Woody_Allen -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Woody_Allen">
+        <rdf:type rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Actor"/>
+        <isActorOf rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Bananas"/>
+        <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">36</age>
+        <name>Woody Allen</name>
+        <nationality>American</nationality>
+    </owl:NamedIndividual>
+
+        
+
+    <!-- http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Louise_Lasser -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Louise_Lasser">
+        <rdf:type rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Actor"/>
+        <isActorOf rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Bananas"/>
+        <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">37</age>
+        <name>Louise Lasser</name>
+        <nationality>American</nationality>
+    </owl:NamedIndividual>
+
+        
+
+    <!-- http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Carlos_Montalbán -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Carlos_Montalbán">
+        <rdf:type rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Actor"/>
+        <isActorOf rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Bananas"/>
+        <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">36</age>
+        <name>Carlos Montalbán</name>
+        <nationality>American</nationality>
+    </owl:NamedIndividual>
+
+        
+
+    <!-- http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Woody_Allen -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Woody_Allen">
+        <rdf:type rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Director"/>
+        <isDirectorOf rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Bananas"/>
+        <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">49</age>
+        <name>Woody Allen</name>
+        <nationality>American</nationality>
+    </owl:NamedIndividual>
+
+        
+
+    <!-- http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Woody_Allen -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Woody_Allen">
+        <rdf:type rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Writer"/>
+        <isWriterOf rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Bananas"/>
+        <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">44</age>
+        <name>Woody Allen</name>
+        <nationality>American</nationality>
+    </owl:NamedIndividual>
+
+        
+
+    <!-- http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Mickey_Rose -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Mickey_Rose">
+        <rdf:type rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Writer"/>
+        <isWriterOf rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Bananas"/>
+        <age rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">36</age>
+        <name>Mickey Rose</name>
+        <nationality>American</nationality>
+    </owl:NamedIndividual>
+
+        
+
+    <!-- http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Bananas -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Bananas">
+        <rdf:type rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Movie"/>
+        <hasActor rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Woody_Allen"/>
+        <hasActor rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Louise_Lasser"/>
+        <hasActor rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Carlos_Montalbán"/>
+        <hasDirector rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Woody_Allen"/>
+        <hasGenre rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Comedy"/>
+        <hasWriter rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Woody_Allen"/>
+        <hasWriter rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Mickey_Rose"/>
+        <isPlayedIn rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#UGC_CINE_CITE_BERCY"/>        <country>United_States</country>
+        <language>English</language>
+        <language>Spanish</language>
+        <language>Yiddish</language>
+        <language>Italian</language>
+        <title>Bananas</title>
+        <year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1971</year>
+        <from_date>19 Jul 1971</from_date>
+        <to_date>05 Jul 2000</to_date>
+    </owl:NamedIndividual>
+
+        
+
+
+    <!-- http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#UGC_CINE_CITE_BERCY -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#UGC_CINE_CITE_BERCY">
+        <rdf:type rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Theater"/>
+        <isPlaying rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Bananas"/>
+        <theater_name>UGC_CINE_CITE_BERCY</theater_name>
+    </owl:NamedIndividual>
+    

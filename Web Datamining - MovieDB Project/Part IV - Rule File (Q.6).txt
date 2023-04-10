@@ -1,0 +1,343 @@
+		SWRL :
+
+-> A Person is a Writer and Director Of a Movie : 
+
+Movie(?m) ^ Writer(?a) ^ isWriterOf(?a, ?m) ^ Director(?a) ^ isDirectorOf(?a, ?m) -> DirectorWriter(?a) ^ isDirectorWriterOf(?a, ?m)
+
+-> A Person is an Actor, Writer and Director Of a Movie : 
+
+Movie(?m) ^ Actor(?a) ^ isActorOf(?a,?m) ^ Writer(?a) ^ isWriterOf(?a, ?m) ^ Director(?a) ^ isDirectorOf(?a, ?m) -> ActorDirectorWriter(?a) ^ isActorDirectorWriterOf(?a, ?m)
+
+-> A Person is a Writer and Actor Of a Movie : 
+
+Movie(?m) ^ Writer(?a) ^ isWriterOf(?a, ?m) ^ Actor(?a) ^ isActorOf(?a, ?m) -> ActorWriter(?a) ^ isActorWriterOf(?a, ?m)
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+		OWL/XML :
+
+-----> A Person is a Director and Writer Of a Movie : 
+
+<rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DirectorWriter</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Movie"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#m"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Writer"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#a"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#isWriterOf"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#a"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#m"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Director"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#a"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#isDirectorOf"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#a"/>
+                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#m"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#DirectorWriter"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#a"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#isDirectorWriterOf"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#a"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#m"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+
+-----> A Person is an Actor and Writer Of a Movie : 
+
+<rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ActorWriter</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Movie"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#m"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Writer"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#a"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#isWriterOf"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#a"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#m"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Actor"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#a"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#isActorOf"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#a"/>
+                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#m"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#ActorWriter"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#a"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#isActorWriterOf"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#a"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#m"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+
+-----> A Person is an Actor, Writer and Director Of a Movie : 
+
+<rdf:Description rdf:about="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#m">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#a">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ActorDirectorWriter</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Movie"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#m"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Actor"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#a"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#isActorOf"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#a"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#m"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Writer"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#a"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#isWriterOf"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#a"/>
+                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#m"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                        <rdf:first>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#Director"/>
+                                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#a"/>
+                                                            </rdf:Description>
+                                                        </rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                                <rdf:first>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#isDirectorOf"/>
+                                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#a"/>
+                                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#m"/>
+                                                                    </rdf:Description>
+                                                                </rdf:first>
+                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#ActorDirectorWriter"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#a"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#isActorDirectorWriterOf"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#a"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/emine/ontologies/2023/2/untitled-ontology-7#m"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
