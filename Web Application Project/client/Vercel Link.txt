@@ -1,0 +1,11 @@
+Application (Vercel Link) :
+https://clear-fashion-website-1.vercel.app/
+
+Application (GitHub Link):
+https://eminebouchiba.github.io/clear-fashion-website/
+
+API :
+https://clear-fashion-api-1.vercel.app/
+
+GitHub :
+https://github.com/EmineBOUCHIBA/clear-fashion
